@@ -1,0 +1,35 @@
+on:
+  workflow_dispatch:  
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '24'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to page branch
+        run: |
+          git remote set-url origin https://github-actions:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+          if git show-ref --verify --quiet refs/heads/page; then
+            git switch page
+          else
+            git switch -c page
+          fi
+          git add .
+          git commit -m "Push from build workflow"
+          git push origin HEAD:${GITHUB_REF}
