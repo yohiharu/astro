@@ -1,4 +1,5 @@
 ---
+import Counter from "./react/Counter"
 var api_key = import.meta.env.API_KEY;
 var url = "https://astro-test-cms.microcms.io/api/v1/item";
 
@@ -18,3 +19,4 @@ var name = await fetch(url, {
 ---
 <p>App</p>
 <p>name(from micro-cms): {name}</p>
+<Counter client:load></Counter>
