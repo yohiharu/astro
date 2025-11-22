@@ -7,16 +7,16 @@ var url = "https://astro-test-cms.microcms.io/api/v1/item";
 var name = await fetch(url, {
   headers: {
     "X-MICROCMS-API-KEY": api_key
-  }
-})
-.then(response => {
-    return response.json();
-})
-.then(data => {
-  return data.name
+  }})
+  .then(response => {
+      return response.json();
+  })
+  .then(data => {
+    return data.name
 })
 
+var default_num = 41
 ---
 <p>App</p>
 <p>name(from micro-cms): {name}</p>
-<Counter client:load default_num=123></Counter>
+<Counter client:load default_num={default_num}></Counter>
