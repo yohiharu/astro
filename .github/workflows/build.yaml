@@ -36,5 +36,5 @@ jobs:
             git switch -c page
           fi
           git add .
-          git commit -m "Push from build workflow"
+          git commit -m "Push from build workflow" --allow-empty
           git push origin page
