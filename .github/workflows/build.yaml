@@ -41,4 +41,4 @@ jobs:
           fi
           git add .
           git commit -m "Push from build workflow" --allow-empty
-          git push origin page
+          git push origin page -f
