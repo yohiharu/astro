@@ -1,6 +1,6 @@
 import {useState} from "react"
-export default function Counter(){
-    const [number, setNumber] = useState(0)
+export default function Counter({default_num}){
+    const [number, setNumber] = useState(Number(default_num))
     const onClick = () => {
         setNumber(prev => prev + 1)
     }
