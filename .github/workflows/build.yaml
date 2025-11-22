@@ -37,4 +37,4 @@ jobs:
           fi
           git add .
           git commit -m "Push from build workflow"
-          git push origin HEAD:${GITHUB_REF}
+          git push origin page
