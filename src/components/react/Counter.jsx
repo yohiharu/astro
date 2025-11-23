@@ -8,7 +8,7 @@ export default function Counter({default_num}){
     console.log(number)
     return (
         <div>
-            <p>Counter</p>
+            <p class="test">Counter</p>
             <p>count: {number}</p>
             <button onClick={onClick}>INC</button>
             <Item item="unchi"></Item>

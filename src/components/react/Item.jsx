@@ -1,5 +1,8 @@
 export default function Item({item}){
+    const style = {
+        "background-color": "green"
+    }
     return(
-        <p>item: {item}</p>
+        <p className="test" style={style}>item: {item}</p>
     )
 }
